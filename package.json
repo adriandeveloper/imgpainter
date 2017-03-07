@@ -1,0 +1,23 @@
+{
+  "name": "imgpainter",
+  "version": "1.0.0",
+  "description": "an image painter",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adriandeveloper/imgpainter.git"
+  },
+  "author": "Adrian Thomas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adriandeveloper/imgpainter/issues"
+  },
+  "homepage": "https://github.com/adriandeveloper/imgpainter#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0"
+  }
+}
