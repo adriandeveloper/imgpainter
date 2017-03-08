@@ -1,8 +1,8 @@
-$(function() {
+window.onload = function() {
   const $canvas = $('canvas');
-  const $drawShape = controls.drawShape();
+  var controls = newControls($canvas);
+  // const $drawShape = controls.drawShape();
   // const $contex = ctx.getContext('2d');
-
 
     function resizeCanvas(){
       canvas.width = window.innerWidth;
@@ -17,7 +17,8 @@ $(function() {
       controls.loadImg();
     }
 
+
     // console.log(controls.drawShape());
 
 
-});
+};

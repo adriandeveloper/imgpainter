@@ -1,15 +1,11 @@
-const $canvas = $('canvas');
+const newControls = function(canvas){
 
-const controls = function(){
-
-
-    function heavyLifting(){
-      // console.log("does heavy lifting");
-    }
 
     function drawShape(){
+      // console.log('yo');
       // heavyLifting();
-      $canvas.drawPolygon({
+      console.log(canvas);
+      canvas.drawPolygon({
         layer: true,
         draggable: true,
         bringToFront: true,
@@ -26,7 +22,7 @@ const controls = function(){
         }
       });
 
-      $canvas.drawPolygon({
+      canvas.drawPolygon({
         layer: true,
         draggable: true,
         bringToFront: true,
@@ -48,7 +44,7 @@ const controls = function(){
         }
       });
 
-      $canvas.drawArc({
+      canvas.drawArc({
         draggable: true,
         bringToFront: true,
         fillStyle: '#58d',
@@ -71,6 +67,8 @@ const controls = function(){
       fileSelect.on('click', (ev) => {
         ev.preventDefault();
         input.click();
+
+      
       });
 
     }
@@ -80,7 +78,7 @@ const controls = function(){
       drawShape: drawShape,
       loadImg: loadImg,
     };
-}();
+};
 
 
 // var thing = "booyah"
