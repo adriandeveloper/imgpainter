@@ -11,10 +11,11 @@ $(function() {
     resizeCanvas();
 
     function drawStuff(){
-    
+
     }
 
     // $canvas.drawPolygon({
+    console.log(controls.drawShape());
     //   layer: true,
     //   draggable: true,
     //   bringToFront: true,
