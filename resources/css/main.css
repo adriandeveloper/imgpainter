@@ -1,4 +1,7 @@
-* { margin: 0; padding: 0;}
+* {
+  margin: 0;
+  padding: 0;
+}
 
 html, body {
   width: 100%;
@@ -8,4 +11,11 @@ html, body {
 
 canvas {
   display: block;
+  position: absolute;
+}
+
+.tools {
+  border: 1px solid #999;
+  position: absolute;
+  z-index: 1;
 }

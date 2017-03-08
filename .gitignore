@@ -46,6 +46,7 @@ config.codekit
 ### CodeKit Patch ###
 */codekit-config.json
 .codekit-cache
+.codekit3
 
 ### macOS ###
 *.DS_Store
