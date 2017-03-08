@@ -53,6 +53,16 @@
 		"rFN": 0,
 		"uCM": 0
 		},
+	"\/resources\/css\/main-min.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "\/resources\/css\/main-min-min.css",
+		"oF": 0,
+		"oS": 0
+		},
 	"\/resources\/css\/main.css": {
 		"aP": 1,
 		"bl": 0,
@@ -63,6 +73,15 @@
 		"oF": 0,
 		"oS": 0
 		},
+	"\/resources\/js\/controls.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/resources\/js\/controls-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
 	"\/resources\/js\/imgpainter.js": {
 		"ft": 64,
 		"mi": 0,
@@ -70,6 +89,15 @@
 		"oAP": "\/resources\/js\/imgpainter-min.js",
 		"oF": 0,
 		"sC": 0,
+		"tS": 0
+		},
+	"\/resources\/js\/shapes.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/resources\/js\/shapes-min.js",
+		"oF": 0,
+		"sC": 1,
 		"tS": 0
 		}
 	},
