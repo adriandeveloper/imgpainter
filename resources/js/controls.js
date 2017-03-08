@@ -63,23 +63,16 @@ const controls = function(){
     }
 
     function loadImg(){
-      $('button').on('click', function(dataURL) {
-        let usrImg = new Image();
-        usrImg.onload = function() {
-          context.drawImage(this, 0, 0);
-          usrImg.src = dataURL;
-        };
-        console.log('booyah');
+      // const selectedFile = $('input').get(0).files[0];
+      const input = $('input');
+      const fileSelect = $('.fileSelect');
 
+      // loads file and prevent page refresh
+      fileSelect.on('click', (ev) => {
+        ev.preventDefault();
+        input.click();
       });
-      // usrImg.onload = function(){
-      //   context.drawImage(this, 0, 0);
-      // };
 
-      // $canvas.loadImg({
-      //   source:
-      //   scale: 0.5;
-      // });
     }
 
 
