@@ -2,9 +2,6 @@ const newControls = function(canvas){
 
 
     function drawShape(){
-      // console.log('yo');
-      // heavyLifting();
-      console.log(canvas);
       canvas.drawPolygon({
         layer: true,
         draggable: true,
@@ -55,21 +52,32 @@ const newControls = function(canvas){
         radius: 30
       });
 
-      // console.log("does stuff");
     }
 
     function loadImg(){
-      // const selectedFile = $('input').get(0).files[0];
+      let selectedFile;
       const input = $('input');
       const fileSelect = $('.fileSelect');
 
+      $('canvas').drawImage({
+        source: './resources/images/bears1.jpg',
+        draggable: true,
+        bringToFront: true,
+        x: 150, y: 150,
+        width: 280,
+        height: 300,
+        fromCenter: false
+
+      });
       // loads file and prevent page refresh
       fileSelect.on('click', (ev) => {
         ev.preventDefault();
         input.click();
-
-      
       });
+
+
+
+
 
     }
 
@@ -79,6 +87,3 @@ const newControls = function(canvas){
       loadImg: loadImg,
     };
 };
-
-
-// var thing = "booyah"
