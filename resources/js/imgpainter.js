@@ -12,11 +12,14 @@ window.onload = function() {
     resizeCanvas();
 
     function drawStuff(){
-      // shape.drawShape();
-      controls.loadImg();
+      shape.drawStar();
+      shape.drawTriangle();
+      shape.drawCircle();
+      shape.drawRectangle();
     }
 
     function toolActions(){
+      controls.loadImg();
       controls.clearCanvas();
     }
 

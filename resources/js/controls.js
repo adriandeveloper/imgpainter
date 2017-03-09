@@ -23,10 +23,9 @@ const newControls = function(canvas){
     }
 
   function clearCanvas(){
-    $('canvas').on('click', function (){
-      console.log("booyah");
+    $('button[name=clear]').on('click', function (){
+      $('canvas').removeLayers();
     });
-    // $canvas.clearCanvas();
   }
 
     return {
