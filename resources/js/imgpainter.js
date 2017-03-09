@@ -12,18 +12,17 @@ window.onload = function() {
     resizeCanvas();
 
     function drawStuff(){
-      shape.drawStar();
-      shape.drawTriangle();
-      shape.drawCircle();
-      shape.drawRectangle();
+      shape.drawStarTool();
+      shape.drawTriangleTool();
+      shape.drawCircleTool();
+      shape.drawRectangleTool();
+      controls.drawLineTool();
+      controls.drawPenTool();
     }
 
     function toolActions(){
       controls.loadImg();
       controls.clearCanvas();
+      controls.colorPickerTool();
     }
-
-
-
-
 };

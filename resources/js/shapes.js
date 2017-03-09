@@ -1,7 +1,6 @@
 const shapes = function(canvas){
 
-    // console.log(shapes);
-    function drawStar(){
+    function drawStarTool(){
       $('button[name=star]').on('click', () => {
         var drag = false;
         canvas.drawPolygon({
@@ -16,14 +15,14 @@ const shapes = function(canvas){
           sides: 5,
           concavity: 0.5,
           mousemove: function(layer) {
-            
+
           }
 
         });
       });
     }
 
-    function drawTriangle() {
+    function drawTriangleTool() {
       $('button[name=triangle]').on('click', () => {
           // console.log("booyah");
         canvas.drawPolygon({
@@ -40,7 +39,7 @@ const shapes = function(canvas){
       });
     }
 
-    function drawCircle() {
+    function drawCircleTool() {
       $('button[name=circle]').on('click', () => {
         canvas.drawArc({
           draggable: true,
@@ -55,10 +54,10 @@ const shapes = function(canvas){
       });
     }
 
-    function drawRectangle() {
+    function drawRectangleTool() {
       $('button[name=rectangle]').on('click', () => {
         canvas.drawRect({
-          fillStyle: '#000',
+          fillStyle: '#fff',
           x: 200, y: 200,
           draggable: true,
           bringToFront: true,
@@ -68,13 +67,10 @@ const shapes = function(canvas){
       });
     }
 
-
-  //
-  //
     return {
-      drawStar: drawStar,
-      drawTriangle: drawTriangle,
-      drawCircle: drawCircle,
-      drawRectangle: drawRectangle,
+      drawStarTool: drawStarTool,
+      drawTriangleTool: drawTriangleTool,
+      drawCircleTool: drawCircleTool,
+      drawRectangleTool: drawRectangleTool,
     };
 };
