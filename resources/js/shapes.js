@@ -3,20 +3,22 @@ const shapes = function(canvas){
     // console.log(shapes);
     function drawStar(){
       $('button[name=star]').on('click', () => {
+        var drag = false;
         canvas.drawPolygon({
           layer: true,
           draggable: true,
           bringToFront: true,
-          // fillStyle: '#c33',
+          // fillStyle: usrColor,
           fillStyle: '#fff',
           strokeStyle: '#333',
-          x: 100, y: 100,
+          // x: 100, y: 100,
           radius: 50,
           sides: 5,
           concavity: 0.5,
-          drag: function(layer){
-
+          mousemove: function(layer) {
+            
           }
+
         });
       });
     }
