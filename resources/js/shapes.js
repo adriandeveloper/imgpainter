@@ -59,42 +59,47 @@ const shapes = function(canvas){
       });
     }
 
-    function drawRectangleTool(x1, y1, x2, y2 ) {
+    function drawRectangleTool() {
       // $('button[name=rectangle]').on('click', (e) => {
-      
-        canvas.drawRect({
-          fillStyle: '#fff',
-          strokeStyle: '#333',
-          strokeWidth: 2,
-          x: x2, y: y2,
-          draggable: true,
-          bringToFront: true,
-          width: x1,
-          height: y1,
-        });
+
+        // canvas.drawRect({
+        //   fillStyle: '#fff',
+        //   strokeStyle: '#333',
+        //   strokeWidth: 2,
+        //   x: 13,
+        //   y: 145,
+        //   draggable: true,
+        //   bringToFront: true,
+        //   fromCenter: false,
+        //   cursors: 'crosshairs',
+        //   // scale: 1,
+        //   width: 200,
+        //   height: 200,
+        // });
       // });
+
+      $('canvas').draw({
+        fn: function(ctx) {
+        ctx.fillStyle = '#333';
+        ctx.fillRect(50, 50, 100, 100);
+      }
+});
     }
 
-    // painting starts
     canvas.on('mousedown', () => {
-      ismousedown = true;
-    });
-    // painting stops
-    canvas.on('mouseup', () => {
-      ismousedown = false;
-      return;
+      // drawRectangleTool();
     });
 
     canvas.on('mousemove', (e) => {
-      lastPos.x = pos.x;
-      lastPos.y = pos.y;
 
       pos.x = Math.floor(e.pageX - canvasOffset.left);
       pos.y = Math.floor(e.pageY - canvasOffset.top);
+    });
 
-      if (ismousedown){
-        drawRectangleTool(lastPos.x, lastPos.y, pos.x, pos.y);
-      }
+    canvas.on('click', () => {
+      lastPos.x = pos.x;
+      lastPos.y = pos.y;
+      // drawRectangleTool(lastPos.x, lastPos.y);
 
     });
 

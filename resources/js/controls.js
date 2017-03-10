@@ -65,6 +65,7 @@ const newControls = function(canvas){
         rounded: true,
         strokeJoin: 'round',
         strokeCap: 'round',
+        cursors: 'pointer',
         x1: x1,
         y1: y1,
         x2: x2,
@@ -117,22 +118,22 @@ const newControls = function(canvas){
       scale: 1
     });
 
-    $('#colorwheel').on('mousemove', (e) => {
-      if (preview){
-      // get mouse coordinates...again
-      pos.x = Math.floor(e.pageX - canvasOffset.left);
-      pos.y = Math.floor(e.pageY - canvasOffset.top);
-
-      // get current pixel
-      let imageData = ctx.getImageData(pos.x, pos.y, 1, 1);
-      let pixel = imageData;
-
-      // update pixel color
-      let pixelColor = "rgb("+pixel[0]+ ","+pixel[1]+","+pixel[2]+")";
-      $('.preview').css('backgroundColor', pixelColor);
-
-      }
-    });
+    // $('#colorwheel').on('mousemove', (e) => {
+    //   if (preview){
+    //   // get mouse coordinates...again
+    //   pos.x = Math.floor(e.pageX - canvasOffset.left);
+    //   pos.y = Math.floor(e.pageY - canvasOffset.top);
+    //
+    //   // get current pixel
+    //   let imageData = ctx.getImageData(pos.x, pos.y, 1, 1);
+    //   let pixel = imageData;
+    //
+    //   // update pixel color
+    //   let pixelColor = "rgb("+pixel[0]+ ","+pixel[1]+","+pixel[2]+")";
+    //   $('.preview').css('backgroundColor', pixelColor);
+    //
+    //   }
+    // });
 
     $('#colorwheel').on('click', () => {
       preview = !preview;
