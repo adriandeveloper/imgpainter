@@ -59,47 +59,61 @@ const shapes = function(canvas){
       });
     }
 
-    function drawRectangleTool() {
+    function drawRectangleTool(x1, y1, x2, y2) {
       // $('button[name=rectangle]').on('click', (e) => {
+        canvas.removeLayers().drawLayers();
+        canvas.drawRect({
+          fillStyle: '#fff',
+          strokeStyle: '#333',
+          strokeWidth: 2,
+          x: x1,
+          y: y1,
+          draggable: true,
+          bringToFront: true,
+          fromCenter: false,
+          cursors: 'crosshairs',
+          // scale: 1,
+          width: x2,
+          height: y2,
+        });
 
-        // canvas.drawRect({
-        //   fillStyle: '#fff',
-        //   strokeStyle: '#333',
-        //   strokeWidth: 2,
-        //   x: 13,
-        //   y: 145,
-        //   draggable: true,
-        //   bringToFront: true,
-        //   fromCenter: false,
-        //   cursors: 'crosshairs',
-        //   // scale: 1,
-        //   width: 200,
-        //   height: 200,
-        // });
-      // });
-
-      $('canvas').draw({
-        fn: function(ctx) {
-        ctx.fillStyle = '#333';
-        ctx.fillRect(50, 50, 100, 100);
-      }
-});
     }
-
+    function moveRectangle(x1, y1, x2, y2) {
+      // $('button[name=rectangle]').on('click', (e) => {
+        canvas.clearCanvas().drawLayers();
+        canvas.drawRect({
+          fillStyle: '#fff',
+          strokeStyle: '#333',
+          strokeWidth: 2,
+          x: x1,
+          y: y1,
+          draggable: true,
+          bringToFront: true,
+          fromCenter: false,
+          cursors: 'crosshairs',
+          // scale: 1,
+          // width: x2,
+          // height: y2,
+        });
+    }
     canvas.on('mousedown', () => {
-      // drawRectangleTool();
+      ismousedown = true;
+      // moveRectangle(e);
     });
 
     canvas.on('mousemove', (e) => {
+      lastPos.x = pos.x;
+      lastPos.y = pos.y;
 
       pos.x = Math.floor(e.pageX - canvasOffset.left);
       pos.y = Math.floor(e.pageY - canvasOffset.top);
+      drawRectangleTool(pos.x, pos.y,lastPos.x, lastPos.y);
+      if (ismousedown) {
+          moveRectangle(pos.x, pos.y);
+      }
     });
 
     canvas.on('click', () => {
-      lastPos.x = pos.x;
-      lastPos.y = pos.y;
-      // drawRectangleTool(lastPos.x, lastPos.y);
 
     });
 
