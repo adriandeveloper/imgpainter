@@ -46,3 +46,9 @@ canvas {
   width: 70px;
   height: 60px;
 }
+
+.clr-container {
+  border: 1px solid #333;
+  margin: 3px;
+  padding: 5px;
+}

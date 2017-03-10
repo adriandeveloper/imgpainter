@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="./resources/css/main.css">
 </head>
 <body>
+  <!-- canvas: artboard -->
   <div class="container">
     <canvas id="canvas">
       <p>This is fallback content
@@ -28,40 +29,49 @@
               <a href="#" class="fileSelect"><img class="loading" src="./resources/images/img_537150.svg" alt=""></a>
             </li>
             <li>
-              <button class="clear" type="button" name="clear">Clear</button>
+              <button class="clear-btn" type="button" name="clear">Clear</button>
             </li>
             <li>
-              <button class="clrpckr-btn" type="button" name="colorpicker">Color Picker</button>
+              <div class="clr-container">
+                <input class="clr-input" type="" name="" value="">
+                <a href="#"></a>
+              </div>
             </li>
             <li>
-              <button class="blur" type="button" name="blur">Blur</button>
+              <button class="blur-btn" type="button" name="blur">Blur</button>
             </li>
             <li>
-              <button class="distort" type="button" name="distort">Distort</button>
+              <button class="distort-btn" type="button" name="distort">Distort</button>
             </li>
             <li>
-              <button class="triangle" type="button" name="triangle">Triangle</button>
+              <button class="triangle-btn" type="button" name="triangle">Triangle</button>
             </li>
             <li>
-              <button class="rectangle" type="button" name="rectangle">Rectangle</button>
+              <button class="rectangle-btn" type="button" name="rectangle">Rectangle</button>
             </li>
             <li>
-              <button class="star" type="button" name="star">Star</button>
+              <button class="star-btn" type="button" name="star">Star</button>
             </li>
             <li>
-              <button class="circle" type="button" name="circle">Circle</button>
+              <button class="circle-btn" type="button" name="circle">Circle</button>
             </li>
             <li>
-              <button class="pen" type="button" name="pen">Pen</button>
+              <button class="pen-btn" type="button" name="pen">Pen</button>
             </li>
             <li>
-              <button class="line" type="button" name="line">Line</button>
+              <button class="line-btn" type="button" name="line">Line</button>
             </li>
             <li>
-              <button class="color" type="button" name="color">Color</button>
+              <button class="fill-btn" type="button" name="fill">Fill</button>
             </li>
           </ul>
       </div>
+  </div>
+
+  <div class="preview"></div>
+  <!-- canvas: color picker -->
+  <div class="colorwheel-container">
+    <canvas id="colorwheel" class="colorwheel" var="1" width="300" height="300"></canvas>
   </div>
 </body>
 </html>

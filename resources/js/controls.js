@@ -2,7 +2,9 @@ const newControls = function(canvas){
   let ismousedown = false;
   let pos = { x: 0, y: 0};
   let lastPos = { x: 0, y: 0 };
-  let canvasOffset = $('canvas').offset();
+  let canvasOffset = canvas.offset();
+  let preview = true;
+  const ctx = colorwheel.getContext('2d');
 
 
 
@@ -38,7 +40,7 @@ const newControls = function(canvas){
      // store the file AFTER you select it
     input.on('change',function(ev){
      const storedFile = this.files[0];
-     console.log(storedFile);
+    //  console.log(storedFile);
      if (storedFile) {
        const thing = reader.readAsDataURL(storedFile);
       }
@@ -48,21 +50,16 @@ const newControls = function(canvas){
   }
 
   function clearCanvas(){
-    // $('button[name=clear]').on('click', function (){
-    //   console.log("booyah");
-    //   $('canvas').removeLayers();
-    // });
+    $('button[name=clear]').on('click', function (){
+      console.log("booyah");
+      $('canvas').removeLayers();
+    });
   }
 
   function drawLineTool(){
   }
 
     function drawPenTool(x1, y1, x2, y2){
-      $('button[name=pen]').on('click', () => {
-        drawing(x1, y1, x2, y2);
-      });
-    }
-    function drawing (x1, y1, x2, y2) {
       canvas.drawLine({
         strokeStyle: '#333',
         strokeWidth: 10,
@@ -75,8 +72,8 @@ const newControls = function(canvas){
         y2: y2,
 
       });
-
     }
+
 
   // painting starts
   canvas.on('mousedown', () => {
@@ -92,8 +89,8 @@ const newControls = function(canvas){
     lastPos.x = pos.x;
     lastPos.y = pos.y;
 
-    pos.x = e.pageX - canvasOffset.left;
-    pos.y = e.pageY - canvasOffset.top;
+    pos.x = Math.floor(e.pageX - canvasOffset.left);
+    pos.y = Math.floor(e.pageY - canvasOffset.top);
 
     if (ismousedown){
       drawPenTool(lastPos.x, lastPos.y, pos.x, pos.y);
@@ -102,7 +99,42 @@ const newControls = function(canvas){
   });
 
   function colorPickerTool(){
+    // for (let i = 0; i < 360; i++) {
+    //   let color = $('<span>');
+    //   color.setAttribute("id", "d" + i);
+    //     color.style.backgroundColor = "hsl(" + i + ", 100%, 50%)";
+    //   $('.colorwheel').appendChild(color);
+    // }
+    $('#colorwheel').drawImage({
+      source: './resources/images/graident.png',
+      width: 300,
+      height: 300,
+    });
+    $('#colorwheel').on('mousemove', (e) => {
+      if (preview){
+      // get mouse coordinates...again
+      pos.x = Math.floor(e.pageX - canvasOffset.left);
+      pos.y = Math.floor(e.pageY - canvasOffset.top);
 
+      // get current pixel
+      let imageData = ctx.getImageData(pos.x, pos.y, 1, 1);
+      let pixel = imageData;
+
+      // update pixel color
+      let pixelColor = "rgb("+pixel[0]+ ", "+pixel[1]+", "+pixel[2]+ ")";
+      $('.preview').css('backgroundColor', pixelColor);
+
+      }
+    });
+    let canvasX = Math.floor();
+
+  }
+
+  function blurTool(){
+    $('button[name=blur]').on('click', () => {
+      this.filter = 'blur(105px)';
+      console.log("booyah");
+    });
   }
 
 
@@ -111,6 +143,7 @@ const newControls = function(canvas){
       clearCanvas: clearCanvas,
       drawLineTool: drawLineTool,
       drawPenTool: drawPenTool,
-      colorPickerTool: colorPickerTool
+      colorPickerTool: colorPickerTool,
+      blurTool: blurTool
     };
 };

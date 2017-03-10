@@ -16,6 +16,7 @@ const shapes = function(canvas){
           layer: true,
           draggable: true,
           bringToFront: true,
+          strokeWidth: 2,
           // fillStyle: usrColor,
           fillStyle: '#fff',
           strokeStyle: '#333',
@@ -53,10 +54,9 @@ const shapes = function(canvas){
         canvas.drawArc({
           draggable: true,
           bringToFront: true,
-          fillStyle: '#58d',
-          shadowColor: '#000',
-          shadowBlur: 40,
-          shadowX: -15, shadowY: 5,
+          fillStyle: '#fff',
+          strokeStyle: '#333',
+          strokeWidth: 2,
           x: 50, y: 50,
           radius: 30
         });
@@ -67,6 +67,8 @@ const shapes = function(canvas){
       $('button[name=rectangle]').on('click', () => {
         canvas.drawRect({
           fillStyle: '#fff',
+          strokeStyle: '#333',
+          strokeWidth: 2,
           x: 200, y: 200,
           draggable: true,
           bringToFront: true,

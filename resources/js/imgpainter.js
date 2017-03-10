@@ -24,5 +24,6 @@ window.onload = function() {
       controls.loadImg();
       controls.clearCanvas();
       controls.colorPickerTool();
+      controls.blurTool();
     }
 };
