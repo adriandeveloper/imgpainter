@@ -3,8 +3,7 @@ const newControls = function(canvas){
   let pos = { x: 0, y: 0};
   let lastPos = { x: 0, y: 0 };
   let canvasOffset = canvas.offset();
-  let preview = true;
-  const ctx = colorwheel.getContext('2d');
+  // const ctx = colorwheel.getContext('2d');
 
 
 
@@ -99,17 +98,25 @@ const newControls = function(canvas){
   });
 
   function colorPickerTool(){
+    let preview = true;
+    // let img = new Image();
+    // img.src = './resources/images/colorwheel.png';
+    // img.src = 'https://www.dropbox.com/s/n8f3lkkoz0k0okq/colorwheel.png?dl=0';
+    // img.src = 'http://www.fotoview.nl/help/examples/gradient4.png';
     // for (let i = 0; i < 360; i++) {
     //   let color = $('<span>');
     //   color.setAttribute("id", "d" + i);
     //     color.style.backgroundColor = "hsl(" + i + ", 100%, 50%)";
     //   $('.colorwheel').appendChild(color);
     // }
+
     $('#colorwheel').drawImage({
-      source: './resources/images/graident.png',
+      source: './resources/images/bears1.jpg',
       width: 300,
       height: 300,
+      scale: 1
     });
+
     $('#colorwheel').on('mousemove', (e) => {
       if (preview){
       // get mouse coordinates...again
@@ -121,12 +128,19 @@ const newControls = function(canvas){
       let pixel = imageData;
 
       // update pixel color
-      let pixelColor = "rgb("+pixel[0]+ ", "+pixel[1]+", "+pixel[2]+ ")";
+      let pixelColor = "rgb("+pixel[0]+ ","+pixel[1]+","+pixel[2]+")";
       $('.preview').css('backgroundColor', pixelColor);
 
       }
     });
-    let canvasX = Math.floor();
+
+    $('#colorwheel').on('click', () => {
+      preview = !preview;
+    });
+    $('#colorwheel').on('click', () => {
+      $('#colorwheel').fadeToggle("slow", linear);
+      preview = true;
+    });
 
   }
 

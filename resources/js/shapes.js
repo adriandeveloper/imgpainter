@@ -1,13 +1,8 @@
 const shapes = function(canvas){
   let ismousedown = false;
-  let pos = {
-    x: 0,
-    y: 0
-  };
-  let lastpos = {
-    x: 0,
-    y: 0
-  };
+  let pos = { x:0, y:0 };
+  let lastPos = { x:0, y:0 };
+  let canvasOffset = canvas.offset();
 
     function drawStarTool(){
       $('button[name=star]').on('click', () => {
@@ -31,6 +26,7 @@ const shapes = function(canvas){
         });
       });
     }
+
 
     function drawTriangleTool() {
       $('button[name=triangle]').on('click', () => {
@@ -63,20 +59,44 @@ const shapes = function(canvas){
       });
     }
 
-    function drawRectangleTool() {
-      $('button[name=rectangle]').on('click', () => {
+    function drawRectangleTool(x1, y1, x2, y2 ) {
+      // $('button[name=rectangle]').on('click', (e) => {
+      
         canvas.drawRect({
           fillStyle: '#fff',
           strokeStyle: '#333',
           strokeWidth: 2,
-          x: 200, y: 200,
+          x: x2, y: y2,
           draggable: true,
           bringToFront: true,
-          width: 100,
-          height: 200,
+          width: x1,
+          height: y1,
         });
-      });
+      // });
     }
+
+    // painting starts
+    canvas.on('mousedown', () => {
+      ismousedown = true;
+    });
+    // painting stops
+    canvas.on('mouseup', () => {
+      ismousedown = false;
+      return;
+    });
+
+    canvas.on('mousemove', (e) => {
+      lastPos.x = pos.x;
+      lastPos.y = pos.y;
+
+      pos.x = Math.floor(e.pageX - canvasOffset.left);
+      pos.y = Math.floor(e.pageY - canvasOffset.top);
+
+      if (ismousedown){
+        drawRectangleTool(lastPos.x, lastPos.y, pos.x, pos.y);
+      }
+
+    });
 
     return {
       drawStarTool: drawStarTool,
