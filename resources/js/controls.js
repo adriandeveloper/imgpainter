@@ -1,6 +1,10 @@
 const newControls = function(canvas){
+  let ismousedown = false;
+  let pos = { x: 0, y: 0};
+  let lastPos = { x: 0, y: 0 };
+  let canvasOffset = $('canvas').offset();
 
-  let offset = $('canvas').offset();
+
 
   function loadImg() {
     let selectedFile;
@@ -44,16 +48,58 @@ const newControls = function(canvas){
   }
 
   function clearCanvas(){
-    $('button[name=clear]').on('click', function (){
-      $('canvas').removeLayers();
-    });
+    // $('button[name=clear]').on('click', function (){
+    //   console.log("booyah");
+    //   $('canvas').removeLayers();
+    // });
   }
 
   function drawLineTool(){
   }
 
-  function drawPenTool(){
-  }
+    function drawPenTool(x1, y1, x2, y2){
+      $('button[name=pen]').on('click', () => {
+        drawing(x1, y1, x2, y2);
+      });
+    }
+    function drawing (x1, y1, x2, y2) {
+      canvas.drawLine({
+        strokeStyle: '#333',
+        strokeWidth: 10,
+        rounded: true,
+        strokeJoin: 'round',
+        strokeCap: 'round',
+        x1: x1,
+        y1: y1,
+        x2: x2,
+        y2: y2,
+
+      });
+
+    }
+
+  // painting starts
+  canvas.on('mousedown', () => {
+    ismousedown = true;
+  });
+  // painting stops
+  canvas.on('mouseup', () => {
+    ismousedown = false;
+    return;
+  });
+
+  canvas.on('mousemove', (e) => {
+    lastPos.x = pos.x;
+    lastPos.y = pos.y;
+
+    pos.x = e.pageX - canvasOffset.left;
+    pos.y = e.pageY - canvasOffset.top;
+
+    if (ismousedown){
+      drawPenTool(lastPos.x, lastPos.y, pos.x, pos.y);
+    }
+
+  });
 
   function colorPickerTool(){
 

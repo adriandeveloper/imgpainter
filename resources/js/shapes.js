@@ -1,4 +1,13 @@
 const shapes = function(canvas){
+  let ismousedown = false;
+  let pos = {
+    x: 0,
+    y: 0
+  };
+  let lastpos = {
+    x: 0,
+    y: 0
+  };
 
     function drawStarTool(){
       $('button[name=star]').on('click', () => {
